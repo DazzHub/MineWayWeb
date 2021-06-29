@@ -12,5 +12,23 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;  
+}
+
+hr {
+  border-color: #339CFF;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+@media (max-width: 280px) {
+  * {
+    word-break:break-all;
+  }
+
+  .fa-5x {
+    font-size: 2em;
+  }
 }
