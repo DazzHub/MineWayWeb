@@ -12,6 +12,10 @@ Home.getInitialProps = async () => {
   try {
     const json = await res.json();
     
+	if (!json.ok) {
+		return {data: undefined}
+	}
+	
     return {data: json}
 
   } catch(error) {
