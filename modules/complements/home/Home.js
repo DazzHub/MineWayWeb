@@ -5,6 +5,8 @@ import style from '../../../styles/complements/home/Home.module.scss'
 
 const Home = ({data}) => {
 
+	let dataso = data;
+
     function iHover(num) {
         let change = document.getElementById("ani_" + num);
         change.src = "../icons/icon-" + num + "-hover.png";
@@ -18,6 +20,19 @@ const Home = ({data}) => {
     const copyUrl = () => {
         navigator.clipboard.writeText("play.mineway.org")
     }
+	
+	if (data == undefined || data == null) {
+		const errordata = {
+			"data": {
+				"players": {
+					"online": 0,
+					"max": 200
+				}
+			}
+		}
+		
+		dataso = errordata;
+	}
 
     return (
         <section className={style.container} id="Home">
@@ -25,7 +40,7 @@ const Home = ({data}) => {
                 <h1>Bienvenido</h1>   
                         
                 <h3>MineWay Network</h3>
-                <h4>Entre y únase a los <span>{data.players.online}/{data.players.max}</span> jugadores</h4>  
+                <h4>Entre y únase a los <span>{dataso.players.online}/{dataso.players.max}</span> jugadores</h4>  
                                 
                 <button onClick={(event) => copyUrl(event)}>PLAY.MINEWAY.ORG</button>
             </div>		
@@ -38,12 +53,12 @@ const Home = ({data}) => {
 
                 <div className={style.b_ani} onMouseOver={() => iHover(3)} onMouseOut={() => iUnHover(3)} onClick={() => Router.push("#Vote")} >
                     <img src="../icons/icon-3.png"  id="ani_3"/>
-                    <button>Tienda</button>
+                    <button>Votar</button>
                 </div>
 
                 <div className={style.b_ani} onMouseOver={() => iHover(4)} onMouseOut={() => iUnHover(4)} onClick={() => Router.push("https://discord.com/invite/H8zFf9H")} >
                     <img src="../icons/icon-4.png" id="ani_4"/>
-                    <button>Tienda</button>
+                    <button>Foro</button>
                 </div>
             </div>
         </section>

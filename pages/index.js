@@ -16,7 +16,7 @@ Home.getInitialProps = async () => {
 
   } catch(error) {
 
-    return {data: error}
+    return {data: undefined}
 
   }
 }
