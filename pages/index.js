@@ -7,7 +7,7 @@ const Home = ({data}) => {
 }
 
 Home.getInitialProps = async () => {
-  const res = await fetch('https://api.minetools.eu/ping/play.mineway.org/25565');
+  const res = await fetch('https://api.mcsrvstat.us/2/play.mineway.org');
   
   try {
     const json = await res.json();
